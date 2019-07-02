@@ -93,7 +93,7 @@ export default class Leaderboard extends React.PureComponent {
             {parseInt(index) + 1}
           </Text>
           {avatarComp}
-          {this.props.icon && (
+          {this.props.icon && !this.props.renderAvatar && (
             <Image
               source={{ uri: item[this.props.icon] }}
               style={[styles.avatar, this.props.avatarStyle]}
