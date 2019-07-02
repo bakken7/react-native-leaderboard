@@ -78,6 +78,8 @@ export default class Leaderboard extends React.PureComponent {
       const rowColor = index % 2 === 0 ? evenColor : oddColor;
       const scoreLabel = this.props.scoreLabel ? item[this.props.scoreLabel] : item[sortBy];
 
+    const avatarComp = this.props.renderAvatar? (this.props.renderAvatar( item ) ) : undefined
+
     const rowJSx = (
       <View style={[styles.row, { backgroundColor: rowColor }]} key={index}>
         <View style={styles.left}>
@@ -90,6 +92,7 @@ export default class Leaderboard extends React.PureComponent {
           >
             {parseInt(index) + 1}
           </Text>
+          {avatarComp}
           {this.props.icon && (
             <Image
               source={{ uri: item[this.props.icon] }}
